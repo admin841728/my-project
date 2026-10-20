@@ -1,0 +1,82 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 326B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 0.1s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [build 1/6] FROM docker.io/library/node:22-alpine@sha256:0a7108bf6c7bf5de370ffb1a3ed6be93d405b43ff159f681a8d18c0e2bc2e402
+#5 DONE 0.0s
+
+#6 [build 2/6] WORKDIR /app
+#6 CACHED
+
+#7 [stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:892bb2152464f0c5d8972593a5f5afaf8054552580b699d95f8ff4af08c2d33d
+#7 resolve docker.io/library/nginx:alpine@sha256:892bb2152464f0c5d8972593a5f5afaf8054552580b699d95f8ff4af08c2d33d 0.1s done
+#7 DONE 0.1s
+
+#8 [internal] load build context
+#8 transferring context: 495B 0.0s done
+#8 DONE 0.1s
+
+#9 [build 3/6] COPY package*.json ./
+#9 DONE 0.1s
+
+#10 [build 4/6] RUN npm install
+#10 2.122 npm error code ENOENT
+#10 2.122 npm error syscall open
+#10 2.122 npm error path /app/package.json
+#10 2.122 npm error errno -2
+#10 2.123 npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/app/package.json'
+#10 2.123 npm error enoent This is related to npm not being able to find a file.
+#10 2.123 npm error enoent
+#10 2.126 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-10-20T03_42_03_362Z-debug-0.log
+#10 ERROR: process "/bin/sh -c npm install" did not complete successfully: exit code: 254
+
+#7 [stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:892bb2152464f0c5d8972593a5f5afaf8054552580b699d95f8ff4af08c2d33d
+#7 sha256:3bf3671a4e6a18510ca49e3a4a226c2ef734a646e01e34e1ad0eff5faa01e3a0 629B / 629B 0.2s done
+#7 sha256:b44956913298a55652fa97af34d296339c089250911e46e1a1c0eab8a88538c7 966B / 966B 0.1s done
+#7 sha256:892bb2152464f0c5d8972593a5f5afaf8054552580b699d95f8ff4af08c2d33d 10.33kB / 10.33kB done
+#7 sha256:138af827713b7671ef4ee2deea73bc6f08ae265130ce350307e3e7b52cd4b51b 2.50kB / 2.50kB done
+#7 sha256:76090a34b858323b6ab169711adc08253b5bee7123a973dc581ed46b643bc109 12.32kB / 12.32kB done
+#7 sha256:6711e0c4f5a79e8db637a3412394f29da647e54476d67c5b211a11527568ddc5 4.42MB / 4.42MB 0.3s done
+#7 sha256:710ec83ca6cd71fa5636d861343b5660636728f71992fd1b68914e03c7af3ad4 405B / 405B 0.2s done
+#7 sha256:70683d58fa5c20b5b31c9998a16f6634720d3393dc62934a608754abe449fe3b 1.21kB / 1.21kB 0.3s done
+#7 extracting sha256:6711e0c4f5a79e8db637a3412394f29da647e54476d67c5b211a11527568ddc5 0.9s done
+#7 sha256:6638b436592c96dd194db76a6b786b60b344d80ebe160e646c871d4e7eff25b5 1.40kB / 1.40kB 0.3s done
+#7 sha256:1fdd0614a47ec2896aea36fb280a7b5e8655614dfb56ec1a64002131791de601 20.53MB / 20.53MB 1.1s done
+#7 extracting sha256:3bf3671a4e6a18510ca49e3a4a226c2ef734a646e01e34e1ad0eff5faa01e3a0 done
+#7 extracting sha256:b44956913298a55652fa97af34d296339c089250911e46e1a1c0eab8a88538c7 done
+#7 extracting sha256:710ec83ca6cd71fa5636d861343b5660636728f71992fd1b68914e03c7af3ad4 done
+#7 extracting sha256:70683d58fa5c20b5b31c9998a16f6634720d3393dc62934a608754abe449fe3b done
+#7 extracting sha256:6638b436592c96dd194db76a6b786b60b344d80ebe160e646c871d4e7eff25b5 done
+#7 extracting sha256:1fdd0614a47ec2896aea36fb280a7b5e8655614dfb56ec1a64002131791de601 0.8s
+------
+ > [build 4/6] RUN npm install:
+2.122 npm error code ENOENT
+2.122 npm error syscall open
+2.122 npm error path /app/package.json
+2.122 npm error errno -2
+2.123 npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/app/package.json'
+2.123 npm error enoent This is related to npm not being able to find a file.
+2.123 npm error enoent
+2.126 npm error A complete log of this run can be found in: /root/.npm/_logs/2026-10-20T03_42_03_362Z-debug-0.log
+------
+Dockerfile:6
+--------------------
+   4 |     
+   5 |     COPY package*.json ./
+   6 | >>> RUN npm install
+   7 |     
+   8 |     COPY . .
+--------------------
+ERROR: failed to solve: process "/bin/sh -c npm install" did not complete successfully: exit code: 254
